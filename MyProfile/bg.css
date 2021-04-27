@@ -1,0 +1,31 @@
+body{
+    background-image: url('bgimage.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+a{
+    color: white;
+    text-decoration: underline;
+}
+a:hover{
+    color: rgb(153, 149, 149);
+}
+.row{
+    width: 100%;
+}
+.edubody{
+    background-image: url('edubg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.well{
+    font-size: 20px;
+}
+#homeimg{
+    height: 40px;
+    width: 40px;
+    position: relative;
+    float: right;
+    margin-right: 30px;
+    
+}
