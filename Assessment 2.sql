@@ -15,20 +15,20 @@ exec proc_authorNameAndPrice 'Anne','Ringer',1111
 drop proc proc_authorNameAndPrice
 
 --4. create function to calculate tax
-create function fn_calculateTax(@titleid varchar(30))
+create function fn_calculateTax(@titleid varchar(20))
 returns float
 as
 begin
 declare
    @qty int,
-   --@total float,
+   @total float,
    @price float,
-   @taxPayableForEveryBook float,
+   @taxPayable float,
    @tax float
 
-   set @qty=(select qty from sales where title_id=@titleid)
-   set @price=(select price from titles where title_id=@titleid )
-   --set @total=@price*@qty
+   set @qty=(select top 1 qty from sales where title_id in (@titleid))
+   set @price=(select top 1 price from titles where title_id in (@titleid) )
+   set @total=@price*@qty
    if(@qty<10)
       set @tax=2
    else if(@qty>10 and @qty<20)
@@ -37,12 +37,12 @@ declare
       set @tax=6
    else
       set @tax=7.5
-  set @taxPayableForEveryBook=@price*@tax/100
-  return @taxPayableForEveryBook
+  set @taxPayable=@total*@tax/100
+  return @taxPayable
 end
 
 drop function fn_calculateTax
-select dbo.fn_calculateTax('PC1035') 'Tax to be paid for every Book' 
+select s.qty,t.title_id,t.title,dbo.fn_calculateTax(t.title_id) 'Tax to be paid ' from titles t join sales s on t.title_id=s.title_id
 
 select * from titles
 select * from sales
