@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>ContactUs Page</title>
+    </head>
+    <body>
+        <table align="center" width="100%">
+            <tr>
+                <td><img src="images/logo.jpg" align="left" height="200" width="150"/></td>
+                 <td><b><font size="20">Royal Food House</font></b></td>
+            </tr>
+        </table>
+        <br/>
+        <a target="_self" href="Homepage.html">Home Page</a>
+        <a target="_self" href="ContactPage.html">Contact Us</a>
+        <br/>
+        <br/>
+    <br/>
+        <form>
+            <table border="0" align="center" width="100%">
+                <tr>
+                    <th>Address</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                </tr>
+                <tr align="center">
+                    <td rowspan="6">1/271, BTR Nagar, 1st Main, </br>Zuzuvadi, Sipcot,Hosur- 635126. </td>
+                </tr>
+                <tr align="center">
+                    <td rowspan="6" align="center">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15564.320899503033!2d77.77958027493928!3d12.773301905777988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae710aa227ffbb%3A0xa61ee29f4cce292c!2sZuzuvadi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1618485729640!5m2!1sen!2sin" 
+                        width="700" height="300"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></td>
+                </tr>
+                <tr align="center">
+                    <td><label for="txtname">Name</label></td>
+                    <td><input type="text" id="txtname"/></td>
+                </tr>
+                <tr align="center">
+                    <td><label for="ddlcountry">Country</label></td>
+                    <td>
+                        <input list="ddlcountry"/>
+                        <datalist id="ddlcountry">
+                            <option value="UK"></option>
+                            <option value="India"></option>
+                            </datalist>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td><label for="txtremark">Remark</label></td>
+                    <td><input type="text" id="txtremark"/></td>
+                </tr>
+                <tr align="center">
+                    <td><label>Gender</label></td>
+                    <td>
+                        <input type="radio" id="rdbmale" name="grpgender"/>Male
+                        <input type="radio" id="rdbfemale" name="grpgender" checked/>Female
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
