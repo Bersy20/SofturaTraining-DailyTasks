@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Contact Us Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>        
+
+        <script>
+             var users=[
+            {
+                username: "Ramu",
+                password:"1111",
+                country:"India",
+                Email:"Ramu@gmail.com"
+            },
+            {
+                username: "Som",
+                password:"2222",
+                country:"USA",
+                Email:"Som@gmail.com"
+
+            },
+            {
+                username: "Sai",
+                password:"3333",
+                country:"India",
+                Email:"Sai@gmail.com"
+
+            }
+            ]
+            function checkLogin()
+            {
+                var username=document.getElementById("txtUsername").value
+                var password=document.getElementById("txtPassword").value
+                var country=document.getElementById("txtCountry").value
+                var email=document.getElementById("txtEmail").value
+
+                for(var i=0;i<users.length;i++)
+                {
+                    if(users[i].username==username && users[i].password==password && users[i].country==country)
+                    {
+                        alert("Welcome");
+                        return;
+                    }
+                }
+                alert("Invalid user name Password");
+            }
+        </script>
+    </head>
+    <style>
+        div,h1{
+            width: 600px;
+            margin: 60px;
+        }
+    </style>
+        </head>
+        <body style="background-color: rgb(77, 156, 143);">
+            <h1> Contact Details</h1>
+            <div class="alert alert-primary">
+                <label for="txtUsername" class="form-control">Username</label>
+                <input type="text" class="form-control" id="txtUsername"/>
+                <label for="txtPassword" class="form-control">Password</label>
+                <input type="text" class="form-control" id="txtPassword"/>
+                <label for="txtCountry" class="form-control">Country</label>
+                <input type="text" class="form-control" id="txtCountry"/>
+                <label for="txtEmail" class="form-control">Email</label>
+                <input type="text" class="form-control" id="txtEmail"/>
+                <button class="btn btn-success" onclick="checkLogin()">Login</button>
+                <button class="btn btn-danger">Reset</button>
+    
+            </div>
+        </body>
+</html>
