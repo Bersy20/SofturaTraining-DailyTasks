@@ -1,0 +1,64 @@
+h1{
+    font-size:50px;
+}
+#acontact{
+    font-size: 20px;
+    margin-top: 40px;
+}
+font{
+    font-size: 20px;
+}
+#name{
+    padding: 20px;
+}
+a:hover{
+    color: rgb(0, 204, 255);
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+#imglogo{
+    padding: 10px;
+}
+div{
+    position: relative;
+    float:left;
+}
+#txtsearch{
+    border-radius: 3px;
+    margin-top: 60px;
+    margin-left: 50px;
+    width: 400px;
+    height: 40px;
+}
+#imgmargin{
+    margin-top: 61px;
+}
+#maindiv{
+    background-color:rgb(28, 84, 94);
+    width: 100%;
+}
+#petsdiv{
+    border:black 2px solid;
+    height: 350px;
+    width: 250px;
+    position: relative;
+    padding: 10px;
+    margin: 40px;
+    margin-top: 50px;
+    background-color: rgb(230, 240, 238);
+}
+#petsdiv:hover{
+    left:10px;
+    bottom:10px
+}
+.allpetsdiv{
+    margin-left: 50px rgb(137, 201, 195);
+    background-color: rgb(136, 210, 223);
+}
+p{
+    font-size: larger;
+    font-weight: bold;
+}
