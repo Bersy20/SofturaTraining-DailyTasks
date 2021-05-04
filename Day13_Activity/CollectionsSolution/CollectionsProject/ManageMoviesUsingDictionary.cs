@@ -84,7 +84,8 @@ namespace CollectionsProject
             int idx = GetMovieIndexById(id);
             if (idx != -1)
             {
-                PrintMovie(d[idx]);
+                Movie movie = d[idx];
+                PrintMovie(movie);
             }
             else
                 Console.WriteLine("No such movie");
