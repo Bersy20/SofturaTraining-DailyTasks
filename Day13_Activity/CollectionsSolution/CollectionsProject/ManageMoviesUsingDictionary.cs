@@ -84,16 +84,7 @@ namespace CollectionsProject
             }
             return movie;
         }
-        public void PrintMovieById(int id)
-        {
-            Movie movie = GetMovieIndexById(id);
-            if (movie != null)
-            {
-                PrintMovie(movie);
-            }
-            else
-                Console.WriteLine("No such movie");
-        }
+        
         public void PrintAllMovies()
         {
             if (d.Count == 0)
