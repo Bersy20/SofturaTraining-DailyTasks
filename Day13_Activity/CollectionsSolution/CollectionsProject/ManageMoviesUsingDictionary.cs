@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
@@ -26,22 +26,28 @@ namespace CollectionsProject
             movie.TakeMovieDetails();
             return movie;
         }
-        public int GetMovieIndexById(int id)
+        public Movie GetMovieIndexById(int id)
         {
-        //    int index = d.Keys.ToList().IndexOf(id);
-        //    return index;
-
-            List<KeyValuePair<int, Movie>> myList = d.ToList();
-            return myList.FindIndex(m => m.Key == id);//Lambda expression
+            //List<KeyValuePair<int, Movie>> myList = d.ToList();
+            //return myList.FindIndex(m => m.Key == id);//Lambda expression
+            if(d.ContainsKey(id))
+            {
+                Movie getDet = d[id];
+                return getDet;
+            }
+            else
+            {
+                Console.WriteLine("not present");
+                return null;
+            }
         }
         public Movie UpdateMovieName(int id, string name)
         {
-            Movie movie = null;
-            int idx = GetMovieIndexById(id);
-            if (idx != -1)
+            Movie movie = GetMovieIndexById(id);
+            if (movie!=null)
             {
-                d[idx].Name = name;
-                movie = d[idx];
+                d[id].Name = name;
+                movie = d[id];
             }
             return movie;
         }
@@ -49,42 +55,40 @@ namespace CollectionsProject
         {
             Console.WriteLine("Please enter the movie id to be Printed");
             int id = Convert.ToInt32(Console.ReadLine());
-            int idx = GetMovieIndexById(id);
-            if (idx >= 0)
-                PrintMovie(d[idx]);
+            Movie movie= GetMovieIndexById(id);
+            if (movie != null)
+                PrintMovie(movie);
             else
                 Console.WriteLine("No such movie");
         }
         private void DeleteMovie()
         {
             Console.WriteLine("Please enter the movie id to be deleted");
-            try
-            {
-                int id = Convert.ToInt32(Console.ReadLine());
-                d.Remove(GetMovieIndexById(id));
-            }
-            catch (Exception e)
+            int id = Convert.ToInt32(Console.ReadLine());
+            Movie movie = GetMovieIndexById(id);
+            if (movie != null)
+                d.Remove(id);
+
+            else
             {
                 Console.WriteLine("Oops something went wrong. Please try again");
             }
         }
         public Movie UpdateMovieDuration(int id, double duration)
         {
-            Movie movie = null;
-            int idx = GetMovieIndexById(id);
-            if (idx != -1)
+            Movie movie = GetMovieIndexById(id);
+            if (movie != null)
             {
-                d[idx].Duration = duration;
-                movie = d[idx];
+                d[id].Duration = duration;
+                movie = d[id];
             }
             return movie;
         }
         public void PrintMovieById(int id)
         {
-            int idx = GetMovieIndexById(id);
-            if (idx != -1)
+            Movie movie = GetMovieIndexById(id);
+            if (movie != null)
             {
-                Movie movie = d[idx];
                 PrintMovie(movie);
             }
             else
@@ -126,8 +130,12 @@ namespace CollectionsProject
         {
             if (d.Count != 0)
             {
-                List<int> Duration = d.Keys.ToList();
-                Duration.Sort();
+                foreach (KeyValuePair<int, Movie> duration in d.OrderBy(key => key.Value))
+                {
+                    Console.WriteLine("sorted");
+                }
+                //List<int> Duration = d.Keys.ToList();
+                //Duration.Sort();
                 Console.WriteLine("sorted");
             }
             else
