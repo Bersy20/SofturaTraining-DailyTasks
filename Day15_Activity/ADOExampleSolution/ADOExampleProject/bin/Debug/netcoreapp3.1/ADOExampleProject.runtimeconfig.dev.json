@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\bersy\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\bersy\\.nuget\\packages"
-    ]
-  }
-}
