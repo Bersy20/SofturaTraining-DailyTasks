@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -217,6 +217,34 @@ namespace ADOExampleProject
                 con.Close();
             }
         }
+        void SortMoviesByName()
+        {
+            //select * from tblMovie order by @mname
+            
+            string strCmd = "select * from tblMovie order by name";
+            cmd = new SqlCommand(strCmd, con);
+            try
+            {
+                con.Open();
+                SqlDataReader drMovies = cmd.ExecuteReader();
+                while (drMovies.Read())
+                {
+                    Console.WriteLine("Movie Id : " + drMovies[0]);
+                    Console.WriteLine("Movie Name : " + drMovies[1]);
+                    Console.WriteLine("Movie Duration : " + drMovies[2].ToString());
+                    Console.WriteLine("---------------------------------");
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message); ;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         public void PrintMenu()
         {
             int choice = 0;
@@ -224,11 +252,12 @@ namespace ADOExampleProject
             {
                 Console.WriteLine("MENU");
                 Console.WriteLine("1. Add Movie");
-                Console.WriteLine("2. Fetch Movie names from data base");
+                Console.WriteLine("2. Fetch All Movie names");
                 Console.WriteLine("3. Fetch one movie by id ");
                 Console.WriteLine("4. Update Movie");
                 Console.WriteLine("5. Delete Movie");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("6. Sort Movies By Name");
+                Console.WriteLine("7. Exit");
                 Console.WriteLine("Enter the choice ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -249,6 +278,9 @@ namespace ADOExampleProject
                         DeleteMovieById();
                         break;
                     case 6:
+                        SortMoviesByName();
+                        break;
+                    case 7:
                         Console.WriteLine("Exiting...");
                         break;
                     default:
