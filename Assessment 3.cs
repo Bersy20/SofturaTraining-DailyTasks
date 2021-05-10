@@ -221,7 +221,6 @@ namespace Assessment3Project
                             }
                         }
                     }
-
                     if (cow == arr.Length)
                     {
                         Console.WriteLine("Cows-" + cow + " Bulls-" + bulls);
@@ -232,9 +231,13 @@ namespace Assessment3Project
                         {
                             PlayCowBullGame();
                         }
+                        if(option==0)
+                        {
+                            PrintMenu();
+                        }
                     }
+                    
                     Console.WriteLine("Cows-" + cow + " Bulls-" + bulls);
-                    PlayCowBullGame();
                 }
                 else
                 {
