@@ -138,7 +138,7 @@ namespace Assessment3Project
                 }
             }
         }
-
+       
         public static void CardValidationProgram()
         {
             int number, mul, sum = 0, evensum = 0, oddsum = 0;
@@ -178,8 +178,7 @@ namespace Assessment3Project
                 }
                 Console.WriteLine(Convert.ToString(sum)) ;
             }
-        }
-             
+        }      
         static void PlayCowBullGame()
         {
 
@@ -271,7 +270,7 @@ namespace Assessment3Project
                         CheckNameAndPassword();
                         break;
                     case 6:
-                        CardValidation();
+                        CardValidationProgram();
                         break;
                     case 7:
                         PlayCowBullGame();
