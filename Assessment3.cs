@@ -256,8 +256,7 @@ namespace Assessment3Project
                 }
                 else
                 {
-                    Console.WriteLine("Must enter " + arr.Length + " letter a Word");
-                    Console.WriteLine("");
+                    Console.WriteLine("Enter 4 letter a Word");
                 }
             }
         }
