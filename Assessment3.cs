@@ -151,9 +151,10 @@ namespace Assessment3Project
                 {
                     output += Cardnumber[i];
                 }
-                for (int i = 0; i < Cardnumber.Length; i++)
+                Console.WriteLine("reverse number: "+output);
+                for (int i = 0; i < output.Length; i++)
                 {
-                    char num = Cardnumber[i];
+                    char num = output[i];
                     number = (int)Char.GetNumericValue(num);
                     if (i  % 2 != 0)
                     {
@@ -176,6 +177,7 @@ namespace Assessment3Project
                     }
                     sum = evensum + oddsum;
                 }
+                Console.WriteLine("sum: "+sum);
                 if(sum%10==0)
                     Console.WriteLine("The card is valid");
                 else
