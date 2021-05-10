@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -81,7 +81,7 @@ namespace Assessment3Project
                         Console.WriteLine(item);
                     }
                 }
-                
+
             } while (number >= 0);
 
 
@@ -186,9 +186,8 @@ namespace Assessment3Project
                     }
                     int finalResult = result;
                     Console.Write(finalResult);
-                    
                 }
-               
+
             }
             else
             {
@@ -205,9 +204,50 @@ namespace Assessment3Project
             }
             return count;
         }
+        public static void CardValidationProgram()
+        {
+            int number, mul, sum = 0, evensum = 0, oddsum = 0;
+            Console.WriteLine("Please enter the Card Number");
+            string Cardnumber = Console.ReadLine();
+            if (Cardnumber.Length == 16)
+            {
+                string output = string.Empty;
+                for (int i = Cardnumber.Length - 1; i >= 0; i--)
+                {
+                    output += Cardnumber[i];
+                }
+                for (int i = 0; i < Cardnumber.Length; i++)
+                {
+                    char v = Cardnumber[i];
+                    number = (int)Char.GetNumericValue(v);
+                    if (i  % 2 != 0)
+                    {
+                        mul = number * 2;
+                        if (mul >= 10)
+                        {
+                            while (mul > 0)
+                            {
+                                int n = mul % 10;
+                                evensum += n;
+                                mul = mul / 10;
+                            }
+                        }
+                        else
+                            evensum += mul;
+                    }
+                    else
+                    {
+                        oddsum += number;
+                    }
+                    sum = evensum + oddsum;
+                }
+                Console.WriteLine(Convert.ToString(sum)) ;
+            }
+        }
+             
         static void PlayCowBullGame()
         {
-            
+
             string[] wordsArr = new string[5];
             wordsArr[0] = "kite";
             wordsArr[1] = "four";
@@ -223,7 +263,7 @@ namespace Assessment3Project
                 if (arr.Length == guess.Length)
                 {
 
-                    for (i = 0; i < arr.Length; i++)
+                   for (i = 0; i < arr.Length; i++)
                     {
                         if (arr[i] == guess[i])
                         {
@@ -243,10 +283,11 @@ namespace Assessment3Project
 
                     if (cow == arr.Length)
                     {
+                        Console.WriteLine("Cows-" + cow + " Bulls-" + bulls);
                         Console.WriteLine("Congratulations You Won the Game");
                         Console.WriteLine("Do You want to play again. If yes press any number else press 0");
                         int option = Convert.ToInt32(Console.ReadLine());
-                        while(option>0)
+                        while (option > 0)
                         {
                             PlayCowBullGame();
                         }
@@ -256,7 +297,7 @@ namespace Assessment3Project
                 }
                 else
                 {
-                    Console.WriteLine("Enter 4 letter a Word");
+                    Console.WriteLine("Must enter " + arr.Length + " letter a Word");
                 }
             }
         }
@@ -311,7 +352,7 @@ namespace Assessment3Project
         }
         static void Main(string[] args)
         {
-            PrintMenu();
+            PrintMenu();            
         }
     }
 }
