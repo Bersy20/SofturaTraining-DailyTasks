@@ -153,8 +153,8 @@ namespace Assessment3Project
                 }
                 for (int i = 0; i < Cardnumber.Length; i++)
                 {
-                    char v = Cardnumber[i];
-                    number = (int)Char.GetNumericValue(v);
+                    char num = Cardnumber[i];
+                    number = (int)Char.GetNumericValue(num);
                     if (i  % 2 != 0)
                     {
                         mul = number * 2;
