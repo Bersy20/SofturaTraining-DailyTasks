@@ -176,8 +176,13 @@ namespace Assessment3Project
                     }
                     sum = evensum + oddsum;
                 }
-                Console.WriteLine(Convert.ToString(sum)) ;
+                if(sum%10==0)
+                    Console.WriteLine("The card is valid");
+                else
+                    Console.WriteLine("Invalid Card");
             }
+            else
+                Console.WriteLine("The card number should be of 16 characters long");
         }      
         static void PlayCowBullGame()
         {
