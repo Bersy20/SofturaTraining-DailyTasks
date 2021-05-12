@@ -1,0 +1,49 @@
+﻿@model CommentWebApplication.Models.Comment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        
+            @Html.DisplayFor(model => model.Id)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PostCategory)
+        
+            @Html.DisplayFor(model => model.PostCategory)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PostText)
+        
+            @Html.DisplayFor(model => model.PostText)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CommentToPost)
+       
+            @Html.DisplayFor(model => model.CommentToPost)
+        </dt>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+</body>
+</html>

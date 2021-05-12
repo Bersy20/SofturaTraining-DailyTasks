@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CommentWebApplication.Models.Comment>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+        @item.Id
+        <br />
+        @item.PostCategory
+        <br />
+        @item.PostText
+        <br />
+        @item.CommentToPost
+        <br />
+
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        <br />
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+        <br />
+    }
+</body>
+</html>
