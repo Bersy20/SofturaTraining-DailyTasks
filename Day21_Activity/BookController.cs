@@ -60,6 +60,7 @@ namespace BooksWebApplication.Controllers
             Book book = _repo.Get(id);
             return View(book);
         }
+        [HttpPost]
         public IActionResult Details(Book book)
         {
             return RedirectToAction("Index");
