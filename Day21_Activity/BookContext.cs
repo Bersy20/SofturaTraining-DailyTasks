@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace BooksWebApplication.Models
 {
-    public class BookContext
-    {
-        public class PublicationContext : DbContext
+   
+        public class BookContext : DbContext
         {
-            public PublicationContext(DbContextOptions options) : base(options)
+            public BookContext(DbContextOptions options) : base(options)
             {
 
             }
@@ -22,5 +21,5 @@ namespace BooksWebApplication.Models
             }
 
         }
-    }
+    
 }
