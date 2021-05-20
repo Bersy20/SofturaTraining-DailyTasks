@@ -1,4 +1,4 @@
-﻿using AccountClientMVCProject.Model;
+using AccountClientMVCProject.Model;
 using AccountClientMVCProject.Models;
 using Microsoft.Extensions.Logging;
 using System;
@@ -23,9 +23,9 @@ namespace AccountClientMVCProject.Services
         {
             try
             {
-                Account account = _context.Accounts.SingleOrDefault(u => u.CustomerName == t.CustomerName);
-                if (account.CustomerName == t.CustomerName)
-                    return true;
+                Account account = _context.Accounts.SingleOrDefault(u => u.AccountNumber == t.AccountNumber && u.CustomerName==t.CustomerName);
+                if (account.AccountNumber == t.AccountNumber && account.CustomerName == t.CustomerName)
+                    return true;               
             }
             catch (Exception)
             {
