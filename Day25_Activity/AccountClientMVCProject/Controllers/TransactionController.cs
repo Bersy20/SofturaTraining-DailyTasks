@@ -1,4 +1,4 @@
-﻿using AccountClientMVCProject.Models;
+using AccountClientMVCProject.Models;
 using AccountClientMVCProject.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -172,12 +172,16 @@ namespace AccountClientMVCProject.Controllers
                 return View(AccountInfo);
             }
         }
-       
+ 
         public ActionResult Login()
         {
             Account account = new Account();
-            TempData["un"] = account.CustomerName;
+            TempData["un"] = account.AccountNumber;
+            if (TempData.Count == 1)
+                return View();
+
             account.CustomerName = TempData.Peek("un").ToString();
+            
             return View(account);
         }
 
