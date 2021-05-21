@@ -112,7 +112,35 @@ namespace WeathersAPIProject.Controllers
 
             return NoContent();
         }
+        [HttpPost]
+        [Route("AddtWeatherByCity")]
+        public async Task<IActionResult> AddWeatherByCity(string city, Weather weather)
+        {
+            if (city != weather.City)
+            {
+                return BadRequest();
+            }
 
+            _context.Entry(weather).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!WeatherExists(city))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
         private bool WeatherExists(string city)
         {
             return _context.Weathers.Any(e => e.City == city);
