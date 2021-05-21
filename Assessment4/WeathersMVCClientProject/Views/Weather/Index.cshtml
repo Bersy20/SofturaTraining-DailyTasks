@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WeathersMVCClientProject.Models.Weather>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HighTemperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LowTemperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forcast)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighTemperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowTemperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forcast)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { city=item.City }) |
+                @Html.ActionLink("Details", "Details", new { city = item.City }) |
+                @Html.ActionLink("Delete", "Delete", new { city = item.City })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
