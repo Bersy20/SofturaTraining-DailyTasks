@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,10 +28,10 @@ namespace WeathersAPIProject.Controllers
         }
 
         // GET: api/Weathers/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Weather>> GetWeather(string id)
+        [HttpGet("{city}")]
+        public async Task<ActionResult<Weather>> GetWeather(string city)
         {
-            var weather = await _context.Weathers.FindAsync(id);
+            var weather = await _context.Weathers.FindAsync(city);
 
             if (weather == null)
             {
@@ -43,10 +43,10 @@ namespace WeathersAPIProject.Controllers
 
         // PUT: api/Weathers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutWeather(string id, Weather weather)
+        [HttpPut("{city}")]
+        public async Task<IActionResult> PutWeather(string city, Weather weather)
         {
-            if (id != weather.City)
+            if (city != weather.City)
             {
                 return BadRequest();
             }
@@ -59,7 +59,7 @@ namespace WeathersAPIProject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!WeatherExists(id))
+                if (!WeatherExists(city))
                 {
                     return NotFound();
                 }
@@ -94,14 +94,14 @@ namespace WeathersAPIProject.Controllers
                 }
             }
 
-            return CreatedAtAction("GetWeather", new { id = weather.City }, weather);
+            return CreatedAtAction("GetWeather", new { city = weather.City }, weather);
         }
 
         // DELETE: api/Weathers/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteWeather(string id)
+        [HttpDelete("{city}")]
+        public async Task<IActionResult> DeleteWeather(string city)
         {
-            var weather = await _context.Weathers.FindAsync(id);
+            var weather = await _context.Weathers.FindAsync(city);
             if (weather == null)
             {
                 return NotFound();
@@ -113,9 +113,9 @@ namespace WeathersAPIProject.Controllers
             return NoContent();
         }
 
-        private bool WeatherExists(string id)
+        private bool WeatherExists(string city)
         {
-            return _context.Weathers.Any(e => e.City == id);
+            return _context.Weathers.Any(e => e.City == city);
         }
     }
 }
