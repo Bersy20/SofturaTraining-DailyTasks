@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCApplicationProject.Models.User>
+
+@{
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+</body>
+</html>

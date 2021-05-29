@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVCApplicationProject.Models.Employee>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(e => e.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(e => e.Age)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Emp_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Emp_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Emp_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
