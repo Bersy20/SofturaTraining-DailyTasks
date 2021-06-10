@@ -112,10 +112,15 @@ select * from Name_age
 
 --14.Find the total number of rows in the tables starting with schema name 'humanresources'.Display result as No_of_rows_hr
  
---SELECT *
---FROM sys.tables
---where schema_id=5
-
+SELECT
+SUM(dmv.row_count) AS No_of_rows_hr
+FROM sys.objects AS obj
+  INNER JOIN sys.dm_db_partition_stats AS dmv
+  ON obj.object_id = dmv.object_id
+WHERE obj.type = 'U'
+  AND obj.is_ms_shipped = 0x0
+  AND dmv.index_id in (0, 1)
+  And schema_id=5
 
 
 --15.Display maximum rate for each department
