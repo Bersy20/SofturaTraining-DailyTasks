@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Insert</title>
+</head>
+<body>
+    <div> 
+        <form id="frmNewBook" method="post" action="@Url.Action("InsertRecord")">
+            Book Title :<input name="txtTitle"/>
+            <br/>
+            Author ID : <input name="txtAid"/>
+            <br/>
+            Price : <input name="txtPrice"/>
+            <br/>
+            <input type="submit" value="Submit" name="action"/>
+            <input type="submit" value="Cancel" name="action"/>
+        </form>
+    </div>
+</body>
+</html>

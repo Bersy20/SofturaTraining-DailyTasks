@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateAuthorLink</title>
+</head>
+<body>
+    <div> 
+        <form id="FormNewAuthor"method="post" action="@Url.Action("InsertAuthor")">
+            Author Name : <input name="txtAuthorName" />
+            <br />
+            <input type="submit" value="Submit" name="action" />
+            <input type="submit" value="Cancel" name="action" />
+        </form>
+    </div>
+</body>
+</html>

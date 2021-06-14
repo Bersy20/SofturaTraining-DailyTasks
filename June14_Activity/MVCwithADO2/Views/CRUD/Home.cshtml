@@ -1,0 +1,46 @@
+﻿@using System.Data
+@model System.Data.DataTable
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <div> 
+        <form method="post" name="Display">
+            <h2>Home</h2>
+            @Html.ActionLink("Add New Book","Insert")
+            @{ 
+                if(Model.Rows.Count>0)
+            {
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>Book ID</td>
+                            <td>Title of the Book</td>
+                            <td>Author ID</td>
+                            <td>Price</td>
+                        </tr>
+                    </thead>
+                    @foreach(DataRow dr in Model.Rows)
+                {
+                <tr>
+                    <td>@dr["BookID"].ToString()</td>
+                    <td>@dr["Title"].ToString()</td>
+                    <td>@dr["AuthorID"].ToString()</td>
+                    <td>@dr["Price"].ToString()</td>
+                </tr>
+                }
+                </table>
+            }
+            }
+        </form>
+    </div>
+</body>
+</html>
